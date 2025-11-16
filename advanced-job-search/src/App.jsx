@@ -1,11 +1,14 @@
-import Navbar from "./components/Navbar";
+//import Navbar from "./components/Navbar";
 import Platforms from "./components/Platforms";
+import Popup from "./components/Popup";
 
 function App() {
   return (
     <>
-    <Navbar />
+    
     <Platforms />
+    <Popup />
+    
     </>
     
   );
