@@ -1,18 +1,16 @@
-//import Navbar from "./components/Navbar";
-import Platforms from "./components/Platforms";
+import { useState } from "react";
 import Popup from "./components/Popup";
 
 function App() {
+  const [showPopup, setShowPopup] = useState(true);
+
   return (
     <>
-    
-    <Platforms />
-    <Popup />
-    
+      {showPopup && (
+        <Popup onClose={() => setShowPopup(false)} />
+      )}
     </>
-    
   );
 }
 
 export default App;
-
