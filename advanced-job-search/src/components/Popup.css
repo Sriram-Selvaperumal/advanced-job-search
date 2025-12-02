@@ -28,3 +28,15 @@
 .pop button{
     font-size: 20px;
 }
+.pop span {
+  display: block;       /* makes the span take full width */
+  margin-bottom: 20px;  /* gives space before the button */
+}
+.pop button {
+  display: block;
+  margin: 0 auto;       /* centers the button */
+  margin-top: 10px;
+  padding: 10px 25px;
+  border-radius: 10px;
+  cursor: pointer;
+}
