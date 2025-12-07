@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Job Search Assistant</title>
+    <!-- Google Fonts: Poppins for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-decor"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fa-brands fa-linkedin"></i>
+                <span>JobSearch<span class="highlight">Assistant</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="active">Find Jobs</a>
+                <a href="#">Resources</a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container hero-container">
+            <h1 class="hero-title">Find your dream job<br>with <span class="text-primary">LinkedIn</span></h1>
+            <p class="hero-subtitle">By the unemployed, for the unemployed. Search millions of jobs seamlessly.</p>
+
+            <!-- Search Box (Glassmorphism) -->
+            <div class="search-box glass-panel">
+                <div class="input-group">
+                    <i class="fa-solid fa-magnifying-glass input-icon"></i>
+                    <input type="text" id="keyword-input" placeholder="Job title, skills, or company">
+                </div>
+                <div class="divider"></div>
+                <div class="input-group">
+                    <i class="fa-solid fa-location-dot input-icon"></i>
+                    <input type="text" id="location-input" placeholder="City, state, or zip code">
+                </div>
+                <!-- Advanced Filter Toggle -->
+                <button id="filter-toggle-btn" class="btn-icon" title="Advanced Filters">
+                    <i class="fa-solid fa-sliders"></i>
+                </button>
+                <button id="search-btn" class="btn-primary">Search</button>
+            </div>
+
+            <!-- Advanced Filters Panel -->
+            <div id="filters-panel" class="filters-panel glass-panel hidden">
+                <div class="filters-grid">
+                    <!-- Boolean Logic -->
+                    <div class="filter-group">
+                        <h3><i class="fa-solid fa-code-branch"></i> Boolean Search helpers</h3>
+                        <div class="input-row">
+                            <input type="text" id="exact-phrase" placeholder='Exact phrase (adds "")'>
+                        </div>
+                        <div class="input-row">
+                            <input type="text" id="exclude-words" placeholder="Exclude words (adds -)">
+                        </div>
+                    </div>
+
+                    <!-- Date Posted -->
+                    <div class="filter-group">
+                        <h3><i class="fa-regular fa-clock"></i> Date Posted</h3>
+                        <div class="checkbox-group">
+                            <label><input type="radio" name="date-posted" value="r604800"> Past Week</label>
+                            <label><input type="radio" name="date-posted" value="r86400"> 24 Hours</label>
+                            <label><input type="radio" name="date-posted" value="r2592000"> Past Month</label>
+                            <label><input type="radio" name="date-posted" value="" checked> Any Time</label>
+                        </div>
+                    </div>
+
+                    <!-- Experience Level -->
+                    <div class="filter-group">
+                        <h3><i class="fa-solid fa-briefcase"></i> Experience</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="experience" value="1"> Internship</label>
+                            <label><input type="checkbox" name="experience" value="2"> Entry Level</label>
+                            <label><input type="checkbox" name="experience" value="3"> Associate</label>
+                            <label><input type="checkbox" name="experience" value="4"> Mid-Senior</label>
+                            <label><input type="checkbox" name="experience" value="5"> Director</label>
+                        </div>
+                    </div>
+
+                    <!-- Job Type (Remote/Hybrid) -->
+                    <div class="filter-group">
+                        <h3><i class="fa-solid fa-house-laptop"></i> Work Type</h3>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="work-type" value="1"> On-site</label>
+                            <label><input type="checkbox" name="work-type" value="2"> Remote</label>
+                            <label><input type="checkbox" name="work-type" value="3"> Hybrid</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content: Job Results -->
+    <main class="container main-content">
+        <div class="section-header">
+            <h2>Recommended for you</h2>
+            <p class="section-desc">Based on popular searches</p>
+        </div>
+
+        <div id="job-grid" class="job-grid">
+            <!-- Job Cards will be injected here by JS -->
+        </div>
+
+        <div class="load-more-container">
+            <button class="btn-secondary">Show more jobs</button>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <span>Searching LinkedIn...</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2025 LinkedIn Job Search Assistant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
