@@ -29,8 +29,17 @@
 
                     <div class="grid-2">
                         <div class="form-group">
-                            <label for="keywords">Job Title / Keywords</label>
-                            <input type="text" id="keywords" placeholder="e.g. Frontend Developer" autocomplete="off">
+                            <label for="keywords">Job Title</label>
+                            <input type="text" id="keywords" placeholder="e.g. Frontend Developer, Backend Engineer"
+                                autocomplete="off">
+                            <div class="checkbox-group" style="margin-top: 0.5rem;">
+                                <label class="checkbox-label"
+                                    title="Only match jobs with these exact words in the title">
+                                    <input type="checkbox" id="titleStrict" checked>
+                                    <span class="checkmark"></span>
+                                    Strict Title Match
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="location">Location</label>
