@@ -38,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add listeners to all inputs to update preview real-time
     const inputs = searchForm.querySelectorAll('input, select');
+    // including the new checkbox
+    const titleStrict = document.getElementById('titleStrict');
+    titleStrict.addEventListener('change', updateUrl);
+
     inputs.forEach(input => {
         input.addEventListener('input', updateUrl);
         input.addEventListener('change', updateUrl);
@@ -78,10 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
         let keywordTerms = [];
 
         // Base Keywords
-        const rawKeywords = document.getElementById('keywords').value.trim();
+        let rawKeywords = document.getElementById('keywords').value.trim();
         if (rawKeywords) {
-            // If user typed boolean operators, trust them, otherwise just add it
-            keywordTerms.push(rawKeywords);
+            // Smart Cleanup:
+            // 1. Replace commas with OR
+            rawKeywords = rawKeywords.replace(/,/g, ' OR ');
+
+            // 2. Auto-uppercase boolean operators (and, or, not) if they are whole words
+            rawKeywords = rawKeywords.replace(/\b(and|or|not)\b/gi, match => match.toUpperCase());
+
+            // 3. Clean up double spaces created by replacements
+            rawKeywords = rawKeywords.replace(/\s+/g, ' ').trim();
+
+            // Check if strict title search is enabled
+            if (document.getElementById('titleStrict').checked) {
+                keywordTerms.push(`${rawKeywords}`);
+            } else {
+                keywordTerms.push(rawKeywords);
+            }
         }
 
         // Company Name
