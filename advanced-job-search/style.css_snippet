@@ -1,0 +1,99 @@
+/* ... Previous styles ... */
+/* Add these new styles to the end of style.css */
+
+/* Advanced Filter Toggle Button */
+.btn-icon {
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-sub);
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.btn-icon:hover {
+    color: var(--primary);
+}
+
+/* Filters Panel */
+.filters-panel {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    max-height: 500px; /* Approximate max height */
+    opacity: 1;
+}
+
+.filters-panel.hidden {
+    max-height: 0;
+    padding: 0 1.5rem;
+    opacity: 0;
+    margin-top: 0;
+    pointer-events: none;
+}
+
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.filter-group h3 {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group h3 i {
+    color: var(--primary);
+}
+
+.input-row {
+    margin-bottom: 0.5rem;
+}
+
+.input-row input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.checkbox-group label {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"],
+.checkbox-group input[type="radio"] {
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .filters-grid {
+        grid-template-columns: 1fr;
+    }
+}
